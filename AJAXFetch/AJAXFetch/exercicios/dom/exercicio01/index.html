@@ -1,0 +1,72 @@
+<!-- 
+1. Crie uma página HTML com um botão e uma <div>. Quando o botão é clicado, a cor de
+fundo da <div> deve mudar para uma cor aleatória.
+Obs.: Pode definir uma array com 5 cores que serão trocadas no click do botão. Para a escolha pode-se usar a classe
+Math.randow (para escolher randomicamente) e Math.floor (arredondamento).
+ -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio01</title>
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+            background-color: grey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body {
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+            background-color: darkred;
+            padding: 60px;
+            border-radius: 10px;
+        }
+
+        .container-text {
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            border-radius: 10px;
+            border: 1px solid black;
+            background-color: white;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .container-button {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-text" id="container-text">
+        <p>Clique no botão abaixo para alterar a cor:</p>
+    </div>
+
+    <div class="container-button" id="container-button">
+        <button onclick="alteraCor()">Alterar Cor</button>
+    </div>
+</body>
+
+</html>

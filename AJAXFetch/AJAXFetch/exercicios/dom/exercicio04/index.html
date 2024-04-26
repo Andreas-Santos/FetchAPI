@@ -1,0 +1,39 @@
+<!-- 
+4. Crie uma página HTML que possui 2 campos e 4 botões (Somar, Subtrair, Dividir e
+Multiplicar), ao colocar os números e clicar em um dos botões devem realizar a
+operação escolhida.
+Obs.: Antes de realizar a operação deve validar se foi digitado os números e se o usuário tentar dividir um número
+por zero, deve mostrar a mensagem em um alert “Impossível dividir por zero”
+ -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio04</title>
+</head>
+
+<body>
+    <div class="container-n1">
+        <label for="n1">Valor 1:</label>
+        <input type="number" name="n1" id="n1" placeholder="Digite o valor">
+    </div>
+
+    <div class="container-n2">
+        <label for="n2">Valor 2:</label>
+        <input type="number" name="n2" id="n2" placeholder="Digite o valor">
+    </div>
+
+    <div class="container-botoes">
+        <button onclick="somar()">Somar</button>
+        <button onclick="subtrair()">Subtrair</button>
+        <button onclick="dividir()">Dividir</button>
+        <button onclick="multiplicar()">Multiplicar</button>
+    </div>
+
+    <p id="resultado"></p>
+</body>
+
+</html>

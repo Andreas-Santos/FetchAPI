@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX - Fetch</title>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        .menulateral {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .menulateral a,
+        .menulateral .dom {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 20px;
+        }
+
+        .menulateral a:hover,
+        .menulateral .dom:hover {
+            color: #333;
+            background-color: #fff;
+            font-style: bold;
+            cursor: pointer;
+        }
+
+        .conteudo {
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            padding-left: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menulateral">
+        <p><a href="/exercicios/tagsHtml/exercicio01.html">TAGS HTML</a></p>
+        <p><a href="/exercicios/cssFundamentos/exercicioCSS.html">CSS Fundamentos</a></p>
+        <p><a href="/exercicios/flexbox/index.html">FlexBox</a></p>
+        <p class="dom">DOM</p>
+        <nav>
+            <ul>
+                <li><a href="/exercicios/dom/exercicio01/">Exercicio 01</a></li>
+                <li><a href="/exercicios/dom/exercicio02/">Exercicio 02</a></li>
+                <li><a href="/exercicios/dom/exercicio03/">Exercicio 03</a></li>
+                <li><a href="/exercicios/dom/exercicio04/">Exercicio 04</a></li>
+                <li><a href="/exercicios/dom/exercicio05/">Exercicio 05</a></li>
+            </ul>
+        </nav>
+    </div>
+    <hr>
+    <div class="conteudo" id="content">
+        Selecione a atividade a ser exibida através do menu lateral!
+    </div>
+
+    <script>
+        let links = document.querySelectorAll('.menulateral a');
+        let pagina = document.getElementById('content');
+
+        links.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                fetch(this.getAttribute('href'))
+                    .then(response => response.text())
+                    .then(data => {
+                        pagina.innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.error('Error loading content:', error);
+                    });
+            });
+        });
+
+        function alteraCor() {
+            var cores = ['green', 'red', 'blue', 'yellow', 'brown']
+            var corAleatoria = Math.floor(Math.random() * cores.length);
+            var divCor = window.document.getElementById('container-text');
+
+            divCor.style.background = cores[corAleatoria];
+        }
+
+        function adicionaLista() {
+            var tarefa = window.document.getElementById('tarefa');
+            var tarefaTexto = tarefa.value.trim();
+
+            if (tarefaTexto != '') {
+                var listaTarefa = window.document.getElementById('listaTarefa');
+                var novaTarefa = window.document.createElement('li');
+
+                novaTarefa.textContent = tarefaTexto;
+                listaTarefa.appendChild(novaTarefa);
+                tarefa.value = '';
+            } else {
+                alert('A caixa de texto está vazia!')
+            }
+        }
+
+        var contador = 0;
+        function incrementaContador() {
+            contador++;
+            window.document.getElementById('contador').textContent = contador;
+        }
+
+        function somar() {
+            var num1 = parseFloat(window.document.getElementById('n1').value)
+            var num2 = parseFloat(window.document.getElementById('n2').value)
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                var resultado = num1 + num2;
+                document.getElementById('resultado').innerText = "O Resultado é: " + resultado
+            }
+            else {
+                alert("O número digitado não é válido, tente novamente!")
+            }
+        }
+
+        function subtrair() {
+            var num1 = parseFloat(window.document.getElementById('n1').value)
+            var num2 = parseFloat(window.document.getElementById('n2').value)
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                var resultado = num1 - num2;
+                document.getElementById('resultado').innerText = "O Resultado é: " + resultado
+            }
+            else {
+                alert("O número digitado não é válido, tente novamente!")
+            }
+        }
+
+        function dividir() {
+            var num1 = parseFloat(window.document.getElementById('n1').value)
+            var num2 = parseFloat(window.document.getElementById('n2').value)
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                if (num2 == 0) {
+                    alert("Não é possível dividir por 0!");
+                }
+                else {
+                    var resultado = num1 / num2;
+                    document.getElementById('resultado').innerText = "O Resultado é: " + resultado
+                }
+            }
+            else {
+                alert("O número digitado não é válido, tente novamente!")
+            }
+        }
+
+        function multiplicar() {
+            var num1 = parseFloat(window.document.getElementById('n1').value)
+            var num2 = parseFloat(window.document.getElementById('n2').value)
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                var resultado = num1 * num2;
+                document.getElementById('resultado').innerText = "O Resultado é: " + resultado
+            }
+            else {
+                alert("O número digitado não é válido, tente novamente!")
+            }
+        }
+
+        function contarPalavras() {
+            var frase = document.getElementById('frase').value.trim();
+
+            if (frase == '') {
+                alert('Por favor, insira uma frase ou parágrafo.');
+            }
+            else {
+                var palavras = frase.split(" ").length;
+                document.getElementById('resultado').innerText = 'Número de palavras: ' + palavras;
+            }
+        }
+    </script>
+</body>
+
+</html>

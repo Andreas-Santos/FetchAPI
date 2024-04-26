@@ -1,0 +1,29 @@
+<!-- 
+2. Crie uma página HTML com um campo de entrada de texto, um botão "Adicionar" e
+uma lista de tarefas. Quando o usuário digita uma tarefa no campo de entrada e clica
+no botão, a tarefa deve ser adicionada à lista.
+Obs.: Para criar um novo elemento HTML utiliza-se o método createElement (Ex.: document.createElement('li');) e
+para adicionar o novo elemento como filho de uma tag pode-se usar o método appendChild
+ -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio02</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <input type="text" name="tarefa" id="tarefa" placeholder="Digite a tarefa">
+    <button id="button" onclick="adicionaLista()">Adicionar</button>
+  </div>
+
+  <ul id="listaTarefa"></ul>
+
+</body>
+
+</html>
